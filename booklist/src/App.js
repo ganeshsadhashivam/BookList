@@ -27,6 +27,47 @@ const thirdBook = {
   img: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/41VC-6wmHsL._SX331_BO1,204,203,200_.jpg",
 };
 
+//simple list
+const books = [
+  {
+    id: 1,
+    author: "Gaur Gopal Das",
+    title:
+      "Energize Your Mind: Learn the Art of Mastering Your Thoughts, Feelings and Emotions Paperback – 1 January 2023",
+    img: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/41RwQlo446L._SX329_BO1,204,203,200_.jpg",
+  },
+  {
+    id: 2,
+    author: "Mark Manson",
+    title:
+      "The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life (Mark Manson Collection Book 1)",
+    img: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/51mN3bY0JjL.jpg",
+  },
+];
+
+//simple list
+function App() {
+  return (
+    <div className="App">
+      <section>
+        {books.map((data) => {
+          return (
+            <div key={data.id}>
+              <img src={data.img} alt={data.title} />
+              <h2>{data.title}</h2>
+              <h2>{data.author}</h2>
+            </div>
+          );
+        })}
+      </section>
+    </div>
+  );
+}
+
+/*
+
+
+
 function App() {
   return (
     <div className="App">
@@ -34,7 +75,18 @@ function App() {
         author={firstBook.author}
         title={firstBook.title}
         img={firstBook.img}
-      />
+      >
+        <button
+          style={{
+            color: "white",
+            margin: "1em",
+            padding: "1em",
+            background: "black",
+          }}
+        >
+          Add to cart
+        </button>
+      </Book>
       <Book
         author={secondBook.author}
         title={secondBook.title}
@@ -87,6 +139,7 @@ const Book = (props) => {
 
 //we can destructure in the argument also
 
+/*
 const Book = ({ img, title, author }) => {
   return (
     <article>
@@ -94,6 +147,23 @@ const Book = ({ img, title, author }) => {
         <img src={img} alt={title} />
         <h2>{title}</h2>
         <h4>{author}</h4>
+      </div>
+    </article>
+  );
+};
+
+*/
+
+//children props
+
+const Book = ({ img, title, author, children }) => {
+  return (
+    <article>
+      <div>
+        <img src={img} alt={title} />
+        <h2>{title}</h2>
+        <h4>{author}</h4>
+        {children}
       </div>
     </article>
   );
